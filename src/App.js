@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+   function handleSubmit(e){
+    e.preventDefault();
+   }
+     
+    return (<div className ="pokemon-info-app">
+   <form class="pokemon-form" onSubmit={handleSubmit}>
+        <label htmlFor="pokemonName-input">Pokemon Name</label>
+        <small>
+            Try      
+            <button className="invisible-button" type="button"> "Pikachu"</button>
+            <button className="invisible-button" type="button"> "Charizard"</button>
+            or 
+            <button className="invisible-button" type="button"> "mew"</button>
+        </small>
+        <div>
+            <input id="pokemonName-input" placeholder="Pokemon Name..." name="pokemonName"/>
+            <button type="submit">Submit</button>
+        </div>
+   </form>
+    </div>)
 }
-
 export default App;
