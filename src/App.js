@@ -1,21 +1,38 @@
+import { useState } from "react";
+
+
 function App(){
+    const[pokemonName, setPokemonName] = useState(' ');
    function handleSubmit(e){
-    e.preventDefault();
+        e.preventDefault(); 
+        setPokemonName(pokemonName); 
    }
+   console.log(pokemonName);
+
+   function handleChange(e){
+        setPokemonName(e.target.value);
+    }
+
+    function handleSelect(newPokemonName){
+        setPokemonName(newPokemonName);
+    }
+    
      
     return (<div className ="pokemon-info-app">
-   <form class="pokemon-form" onSubmit={handleSubmit}>
+   <form className="pokemon-form" onSubmit={handleSubmit}>
         <label htmlFor="pokemonName-input">Pokemon Name</label>
         <small>
             Try      
-            <button className="invisible-button" type="button"> "Pikachu"</button>
-            <button className="invisible-button" type="button"> "Charizard"</button>
+            <button className="invisible-button" type="button" onClick={()=>handleSelect("Pikachu")}> "Pikachu"</button>
+            <button className="invisible-button" type="button"
+            onClick={()=>handleSelect("Charizard")}> "Charizard"</button>
             or 
-            <button className="invisible-button" type="button"> "mew"</button>
+            <button className="invisible-button" type="button"
+            onClick={()=>handleSelect("mew")}> "mew"</button>
         </small>
         <div>
-            <input id="pokemonName-input" placeholder="Pokemon Name..." name="pokemonName"/>
-            <button type="submit">Submit</button>
+            <input id="pokemonName-input" placeholder="Pokemon Name..." name="pokemonName" onChange ={handleChange} value={pokemonName}/>
+            <button type="submit" disabled = {!pokemonName.length}>Submit</button>
         </div>
    </form>
     </div>)
