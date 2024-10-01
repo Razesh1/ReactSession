@@ -1,5 +1,6 @@
 
 import ReactDOM from 'react-dom/client'
+import PokemonForm from './pokemon';
 import App from './App' ;
 import './style.css';
 
